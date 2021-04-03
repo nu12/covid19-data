@@ -34,19 +34,10 @@ jobs:
         python main.py
     
     - name: Commit & Push
-<<<<<<< HEAD
       uses: EndBug/add-and-commit@v7
       with:
         branch: actions
         author_name: Alysson A. Costa
         author_email: alysson.avila.costa@gmail.com
         message: "Auto update: $(date)"
-=======
-        uses: EndBug/add-and-commit@v7
-        with:
-          branch: actions
-          author_name: Alysson A. Costa
-          author_email: alysson.avila.costa@gmail.com
-          message: "Auto update: $(date)"
->>>>>>> bec65920081998fc475038b74cc8536b7f5ebfee
     
