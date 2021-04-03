@@ -1,0 +1,43 @@
+name: Python package
+
+on:
+  push:
+    branches:
+      - actions
+  schedule:
+  - cron: "* */12 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: 'actions'
+        persist-credentials: false 
+        fetch-depth: 0 
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 pytest
+        pip install pandas
+    
+    - name: Run data update
+      run: |
+        python main.py
+    
+    - name: Commit & Push
+      uses: EndBug/add-and-commit@v7
+      with:
+        branch: actions
+        author_name: Alysson A. Costa
+        author_email: alysson.avila.costa@gmail.com
+        message: "Auto update: $(date)"
+    
