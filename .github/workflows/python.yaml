@@ -5,7 +5,7 @@ on:
     branches:
       - actions
   schedule:
-  - cron: "* */12 * * *"
+    - cron: '0 0,12 * * *'
 
 jobs:
   build:
@@ -32,6 +32,10 @@ jobs:
     - name: Run data update
       run: |
         python main.py
+
+    - name: Last run
+      run: |
+        echo "$(date)" > data/auto-run
     
     - name: Commit & Push
       uses: EndBug/add-and-commit@v7
