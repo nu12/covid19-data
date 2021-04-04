@@ -41,5 +41,5 @@ jobs:
         branch: actions
         author_name: Alysson A. Costa
         author_email: alysson.avila.costa@gmail.com
-        message: "Auto update: $(date)"
+        message: "Auto update"
     
