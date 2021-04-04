@@ -15,7 +15,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: 'actions'
-        persist-credentials: false 
         fetch-depth: 0 
     
     - name: Set up Python
@@ -26,7 +25,6 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest
         pip install pandas
     
     - name: Run data update
