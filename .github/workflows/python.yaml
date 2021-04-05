@@ -3,9 +3,9 @@ name: Python package
 on:
   push:
     branches:
-      - actions
+      - master
   schedule:
-    - cron: '0 0,12 * * *'
+    - cron: '0 */2 * * *'
 
 jobs:
   build:
@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: 'actions'
+        ref: 'master'
         fetch-depth: 0 
     
     - name: Set up Python
@@ -38,7 +38,7 @@ jobs:
     - name: Commit & Push
       uses: EndBug/add-and-commit@v7
       with:
-        branch: actions
+        branch: master
         author_name: Alysson A. Costa
         author_email: alysson.avila.costa@gmail.com
         message: "Auto update"
