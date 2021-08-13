@@ -38,7 +38,7 @@ vac.rename(columns={
     'people_fully_vaccinated_per_hundred': 'People Fully Vaccinated (per hundred)',
     'daily_vaccinations_per_million': 'Daily Vaccinations (per million)',
 }, inplace=True)
-vac.drop(['daily_vaccinations','total_vaccinations_per_hundred','iso_code','date'],axis=1,inplace=True)
+vac.drop(['daily_vaccinations','total_vaccinations_per_hundred','iso_code','date','total_boosters','total_boosters_per_hundred'],axis=1,inplace=True)
 
 # Process data for each country
 for country in df['Country'].unique():
